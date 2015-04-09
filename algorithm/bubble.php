@@ -14,8 +14,6 @@ for ($i = 0; $i < $len; $i++) {
 
     $flag = false; //标志位
 
-    echo implode("\t", $bubble) . "\n"; //打印冒泡过程
-
     for ($j = $len - 1; $j >= $i ; $j--) {
         if ($bubble[$j] < $bubble[$j-1]) {
             $switch = $bubble[$j];
@@ -28,4 +26,6 @@ for ($i = 0; $i < $len; $i++) {
     if (!$flag) { //没有冒泡时，退出循环
         break;
     }
+
+    echo implode("\t", $bubble) . "\n"; //打印冒泡过程
 }
