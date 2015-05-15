@@ -57,7 +57,29 @@
 
     session.save_handler = redis
     
-    session.save_path = "tcp://ip:port?auth=secret"
+    //多节点
+    session.save_path = "tcp://ip:port?auth=secret?weight=1&timeout=2.5,tcp://ip2:port2?weight=2"
+
+    //单个节点
+    session.save_path = "tcp://ip:port?auth=secret?weight=1&timeout=2.5"
+
+解释一下，涉及参数的含义：
+
+    ip: Redis 节点的 IP。
+    
+    port: Redis 节点的端口。
+    
+    auth: 与 Redis 节点进行权限验证。
+    
+    weight: 权重，上面的例子表示session数量，ip2节点 是 ip1节点的两倍。
+    
+    timeout: Redis 连接超时时间。单位：秒。连接失败时，Session不可用（风险！）
+    
+    persistent: 持久连接。
+    
+    prefix: 前缀，默认是 "PHPREDIS_SESSION:"。
+    
+    database: 选择哪个 Redis 数据库。取值：int。参见 Redis 配置 databases 16。
 
 重启PHP-FPM，然后写个测试脚本 test.php，代码里运行 session_start();
 
@@ -79,4 +101,6 @@
 
 可以看到 Session 存入了 Redis 中，数据结构用的是 String。
 
-**TODO：**多机房的 Redis 存储怎么弄？
+**多机房的 Redis 存储怎么弄？**
+
+同步呗！
