@@ -62,6 +62,9 @@
 
     //单个节点
     session.save_path = "tcp://ip:port?auth=secret?weight=1&timeout=2.5"
+    
+    //socket 方式
+    session.save_path = "unix:///var/run/redis/redis.sock?persistent=1&weight=1&database=0
 
 解释一下，涉及参数的含义：
 
@@ -100,6 +103,12 @@
     (integer) 292
 
 可以看到 Session 存入了 Redis 中，数据结构用的是 String。
+
+**Session 的过期时间**
+
+    使用 php.ini 中的 session.gc_maxlifetime
+    
+    可以通过 ini_set 在 php 中自定义。
 
 **多机房的 Redis 存储怎么弄？**
 
