@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='utf-8'>
+<title>Memcached & Redis</title>
+<script src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+</head>
+
+<body style='display: none'>
+<section class='slides layout-regular'>
+
+<article>
+    <h1>这是标题</h1>
+    <p>这是正文</p>
+</article>
+
+<article>
+    <h3>Page-1</h3>
+    <section>
+    <pre>
+shell> /usr/local/memcached/bin/memcached -I 10k -n 512 -f 1.25 -vv
+slab class   1: chunk size       560 perslab      18
+slab class   2: chunk size       704 perslab      14
+slab class   3: chunk size       880 perslab      11
+slab class   4: chunk size      1104 perslab       9
+slab class   5: chunk size      1384 perslab       7
+slab class   6: chunk size      1736 perslab       5
+slab class   7: chunk size      2176 perslab       4
+slab class   8: chunk size      2720 perslab       3
+slab class   9: chunk size      3400 perslab       3
+slab class  10: chunk size      4256 perslab       2
+slab class  11: chunk size      5320 perslab       1
+slab class  12: chunk size      6656 perslab       1
+slab class  13: chunk size     10240 perslab       1
+    </pre>
+    </section>
+</article>
+
+<article>
+    <h3>Page-2</h3>
+    <ul>
+        <li>Cache失效后的拥堵问题</li>
+        <li>Multiget的无底洞问题</li>
+        <li>Nagle和DelayedAcknowledgment的延迟问题</li>
+    </ul>
+    <div class='source'>Link: <a href="#" target="_blank">link url</a></div>
+</article>
+
+<article>
+    <h3>Q & A</h3>
+</article>
+
+</section>
+</body>
+</html>
